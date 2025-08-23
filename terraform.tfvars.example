@@ -1,0 +1,12 @@
+hostname           = "netbird"           # Hostname for the server
+label              = "netbird"           # Vultr label
+region             = "yto"               # Region code
+plan               = "vc2-1c-2gb"        # Instance size
+os_id              = 2571                # OS ID
+activation_email   = false               # Send activation email
+ssh_key_ids        = ["ssh-key-id"]      # SSH key IDs
+domain_name        = "example.com"       # Domain name
+subdomain_name     = "netbird"           # DNS subdomain
+ssh_allowed_ip     = "127.0.0.1"         # Allowed SSH IP
+firewallgroup_name = "NetBird firewall"  # Firewall group name
+dns_record_comment = "NetBird record"    # DNS comment
