@@ -59,3 +59,8 @@ Login with the following credentials:
 Username: admin@netbird.example.com
 Password: FIvjywviE1PUywSyoKcUaI1tr7rHN/bisZcWfKilQ4o@
 [2025-08-11T02:11:19+00:00] Setup complete
+```
+
+### Zitadel
+
+To manage your users through Zitadel IdP, go to `https://netbird.example.com/ui/console/`
