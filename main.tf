@@ -15,11 +15,11 @@ module "netbird_instance" {
   user_data          = local.user_data
 }
 
- module "netbird_dns_record" {
+module "netbird_dns_record" {
   source = "./modules/cloudflare-dns-record"
 
   domain_name        = var.domain_name
   subdomain_name     = var.subdomain_name
   dns_record_comment = var.dns_record_comment
   dns_record_ip      = module.netbird_instance.instance_info.instance_ip
- }
+}
