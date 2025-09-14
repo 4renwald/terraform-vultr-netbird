@@ -17,13 +17,70 @@ This module automates the deployment of:
 
 ## 🏗️ Architecture
 
+This module creates a complete NetBird self-hosted infrastructure with the following components:
+
+### 🌐 Network Flow
+```mermaid
+graph TB
+    subgraph "Internet"
+        U[Users]
+        D[Devices]
+    end
+
+    subgraph "Cloudflare"
+        DNS[DNS Management]
+        PROXY[Traffic Proxy]
+    end
+
+    subgraph "Vultr Cloud"
+        FW[Firewall Rules]
+        VM[Ubuntu Instance]
+
+        subgraph "NetBird Services"
+            MGT[Management API:33073]
+            DASH[Dashboard:10000]
+            SIG[Signal Server:33080]
+            TURN[TURN/STUN:3478]
+        end
+
+        subgraph "Identity Provider"
+            ZIT[Zitadel]
+        end
+    end
+
+    U --> DNS
+    D --> DNS
+    DNS --> PROXY
+    PROXY --> FW
+    FW --> VM
+    VM --> MGT
+    VM --> DASH
+    VM --> SIG
+    VM --> TURN
+    MGT --> ZIT
+    DASH --> ZIT
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Cloudflare    │    │     Vultr       │    │    NetBird      │
-│   DNS + Proxy   │───▶│   Instance      │───▶│   + Zitadel     │
-│                 │    │   + Firewall    │    │                 │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
+
+### 📋 Component Overview
+
+| Component | Description | Ports |
+|-----------|-------------|-------|
+| **Cloudflare DNS** | Domain management and traffic proxying | 80, 443 |
+| **Vultr Firewall** | Network security and access control | Custom rules |
+| **NetBird Management** | Device management and configuration | 33073 |
+| **NetBird Dashboard** | Web-based administration interface | 10000 |
+| **NetBird Signal** | Peer discovery and signaling | 33080 |
+| **TURN/STUN Server** | NAT traversal for peer connections | 3478, 49152-65535 |
+| **Zitadel** | Identity and access management | Integrated |
+
+### 🔄 Data Flow
+
+1. **DNS Resolution**: Requests hit Cloudflare DNS for domain resolution
+2. **Traffic Routing**: Cloudflare proxies traffic to Vultr instance (optional)
+3. **Firewall Filtering**: Vultr firewall applies security rules
+4. **Service Distribution**: Traffic routes to appropriate NetBird services
+5. **Authentication**: Zitadel handles user authentication and authorization
+6. **Peer Management**: NetBird manages device connections and network policies
 
 ## 🚀 Quick Start
 
