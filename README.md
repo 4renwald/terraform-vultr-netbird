@@ -5,7 +5,7 @@
 [![Vultr](https://img.shields.io/badge/Vultr-007BFC?logo=vultr&logoColor=white)](https://vultr.com)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://cloudflare.com)
 
-A robust, production-ready Terraform module for deploying NetBird self-hosted with Zitadel as the identity provider on Vultr infrastructure with Cloudflare DNS integration.
+A Terraform module for deploying NetBird self-hosted with Zitadel as the identity provider on Vultr infrastructure with Cloudflare DNS integration.
 
 ## 📋 Overview
 
