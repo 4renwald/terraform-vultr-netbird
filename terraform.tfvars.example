@@ -1,12 +1,47 @@
-hostname           = "netbird"           # Hostname for the server
-label              = "netbird"           # Vultr label
-region             = "yto"               # Region code
-plan               = "vc2-1c-2gb"        # Instance size
-os_id              = 2571                # OS ID
-activation_email   = false               # Send activation email
-ssh_key_ids        = ["ssh-key-id"]      # SSH key IDs
-domain_name        = "example.com"       # Domain name
-subdomain_name     = "netbird"           # DNS subdomain
-ssh_allowed_ip     = "127.0.0.1"         # Allowed SSH IP
-firewallgroup_name = "NetBird firewall"  # Firewall group name
-dns_record_comment = "NetBird record"    # DNS comment
+# Vultr Configuration
+# Get your API key from: https://my.vultr.com/settings/#settingsapi
+vultr_api_key = "YOUR_VULTR_API_KEY_HERE"
+
+# Cloudflare Configuration
+# Get your API token from: https://dash.cloudflare.com/profile/api-tokens
+cloudflare_api_token = "YOUR_CLOUDFLARE_API_TOKEN_HERE"
+
+# SSH Configuration
+# List of SSH key IDs from your Vultr account
+ssh_key_ids = ["YOUR_SSH_KEY_ID_1", "YOUR_SSH_KEY_ID_2"]
+
+# IP address or CIDR block allowed to SSH into the instance
+# Examples: "192.168.1.100" or "192.168.1.0/24"
+ssh_allowed_ip = "YOUR_IP_ADDRESS"
+
+# Instance Configuration
+hostname           = "netbird-server"
+label              = "NetBird Self-Hosted Server"
+region             = "ewr"  # Newark (New Jersey) - change to your preferred region
+plan               = "vc2-1c-2gb"  # 1 vCPU, 2GB RAM - adjust as needed
+os_id              = 2571   # Ubuntu 24.04 LTS x64
+firewallgroup_name = "netbird-firewall"
+
+# DNS Configuration
+domain_name        = "example.com"
+subdomain_name     = "netbird"
+dns_record_comment = "NetBird self-hosted server"
+
+# Optional Configuration (uncomment to customize)
+# environment        = "prod"
+# enable_backups     = true
+# enable_ddos_protection = true
+# enable_ipv6        = true
+# dns_record_proxied = false
+# dns_record_ttl     = 300
+
+# Custom port configuration (uncomment to override defaults)
+# custom_tcp_ports = ["80", "443", "33073", "10000", "33080", "8080"]
+# custom_udp_ports = ["3478", "49152-65535"]
+
+# Additional tags for resources
+# additional_tags = {
+#   Owner       = "DevOps Team"
+#   CostCenter  = "IT-Infrastructure"
+#   Backup      = "daily"
+# }

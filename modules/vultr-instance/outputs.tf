@@ -20,9 +20,9 @@
 
 output "instance_info" {
   value = {
-    instance_ip         = vultr_instance.instance.main_ip
-    username            = "linuxuser"
-    password            = nonsensitive(vultr_instance.instance.default_password)
-    login               = "ssh linuxuser@${vultr_instance.instance.main_ip} -i <PATH_TO_SSH_KEY>"
+    instance_ip = vultr_instance.instance.main_ip
+    username    = "linuxuser"
+    password    = nonsensitive(vultr_instance.instance.default_password)
+    login       = "ssh linuxuser@${vultr_instance.instance.main_ip} -i <PATH_TO_SSH_KEY>"
   }
 }

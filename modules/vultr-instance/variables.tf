@@ -42,21 +42,45 @@ variable "ssh_allowed_ip" {
 }
 
 variable "tcp_ports" {
-    type        = set(string)
-    description = "Set of TCP ports to open."
+  type        = set(string)
+  description = "Set of TCP ports to open."
 }
 
 variable "udp_ports" {
-    type        = set(string)
-    description = "Set of UDP ports to open."
+  type        = set(string)
+  description = "Set of UDP ports to open."
 }
 
 variable "user_data" {
-    type        = string
-    description = "Used to pass a custom script at execution."
+  type        = string
+  description = "Used to pass a custom script at execution."
 }
 
 variable "firewallgroup_name" {
   type        = string
   description = "Name of the firewall group linked to the instance."
+}
+
+variable "enable_backups" {
+  type        = bool
+  description = "Enable automatic backups for the instance."
+  default     = false
+}
+
+variable "enable_ddos_protection" {
+  type        = bool
+  description = "Enable DDoS protection for the instance."
+  default     = false
+}
+
+variable "enable_ipv6" {
+  type        = bool
+  description = "Enable IPv6 for the instance."
+  default     = false
+}
+
+variable "common_tags" {
+  type        = map(string)
+  description = "Common tags to apply to resources."
+  default     = {}
 }

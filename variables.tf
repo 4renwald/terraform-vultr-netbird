@@ -80,3 +80,57 @@ variable "subdomain_name" {
   type        = string
   description = "Subdomain used for the DNS record."
 }
+
+variable "environment" {
+  type        = string
+  description = "Environment name (e.g., dev, staging, prod)."
+  default     = "prod"
+}
+
+variable "custom_tcp_ports" {
+  type        = list(string)
+  description = "Custom TCP ports to open in firewall. If empty, uses NetBird defaults."
+  default     = []
+}
+
+variable "custom_udp_ports" {
+  type        = list(string)
+  description = "Custom UDP ports to open in firewall. If empty, uses NetBird defaults."
+  default     = []
+}
+
+variable "additional_tags" {
+  type        = map(string)
+  description = "Additional tags to apply to all resources."
+  default     = {}
+}
+
+variable "enable_backups" {
+  type        = bool
+  description = "Enable automatic backups for the Vultr instance."
+  default     = false
+}
+
+variable "enable_ddos_protection" {
+  type        = bool
+  description = "Enable DDoS protection for the Vultr instance."
+  default     = false
+}
+
+variable "enable_ipv6" {
+  type        = bool
+  description = "Enable IPv6 for the Vultr instance."
+  default     = false
+}
+
+variable "dns_record_proxied" {
+  type        = bool
+  description = "Whether the DNS record should be proxied through Cloudflare."
+  default     = true
+}
+
+variable "dns_record_ttl" {
+  type        = number
+  description = "TTL for the DNS record in seconds."
+  default     = 1
+}
