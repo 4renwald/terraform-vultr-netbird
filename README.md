@@ -366,5 +366,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 This module creates billable resources on Vultr. Please review the pricing and monitor your usage to avoid unexpected charges.
 
 ---
-
-**Made with ❤️ for the NetBird community**
